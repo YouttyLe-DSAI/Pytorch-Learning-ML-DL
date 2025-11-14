@@ -1,0 +1,15 @@
+DataLoader: Công cụ tự động giúp mình tải dữ liệu theo từ Batch một cách hiệu quả đưa vào model AI
+# Giai quyet duoc 2 van de
+- 1. Du lieu qua lon: Khong the tai toan bo du lieu hang trieu tam anh vao RAM hay VRAM cung 1 lyc
+- 2. Tai du lieu cham: Neu ban tai tung cai mot, hoac tai khong hieu qua GPU se phai "ngoi cho" CPU chuan bi du lieu, gay lang phi tai nguyen
+# Dataloader giup:
+- 1. Chia Batching: Tu dong nhom du lieu thanh cac batch nho (vd: 64 anh cung 1 luc)
+- 2. Xao tron (Shuffling): Tu dong xao tron sau moi epoch de mo hinh hoc tot hon va tranh overfitting
+- 3. Tai song song (Parallel Loading): su dung nhieu tien trinh con (num_worker) de chuan bi du lieu tren CPU trong khi GPU dang ban ron Train, giup tang toc do toi da
+# Hoat dong cua DataLoader 
+- 1. Dataset (bat buoc):  DataLoader khong quan tam du lieu cua ban luu o dau (trong file, trong database,..) no chi can ban cun cap mot doi tuong dataset.
+    - a. co 2 phuong thuc bat buoc:
+        __len__(self): phai tra ve tong luong mau trong bo du lieu (vd: 10000 tam anh)
+        __getitem__(self, index): phai tre ve mau du lieu tai vi tri index (vd dataset[5] se tra ve tam anh va nhan thu 5)
+    - b. Sample (Tuy chon):
+        
